@@ -20,7 +20,7 @@ public class Padrao {
 		tabuleiro.iniciaPolo(jogadores[0], jogadores[0].poloDoJogdor());
 		tabuleiro.iniciaPolo(jogadores[1], jogadores[1].poloDoJogdor());
 		
-		System.out.println("Jogadores lançam os dados, quem obter o maior número inicia o jogo.");
+		System.out.println("Jogadores lanÃ§am os dados, quem obter o maior nÃºmero inicia o jogo.");
 		for (int i=0; i<jogadores.length; i++) {
 			dado1 = dados.jogaDado1();
 			System.out.println("Jogador " + (i+1) + "obteve " + dado1);
@@ -49,11 +49,11 @@ public class Padrao {
 				continue;
 			}
 			for (int i=0; i<2; i++) {
-				System.out.println("Informe o númeor do peão qeu deseja mover: ");
+				System.out.println("Informe o nÃºmeor do peÃ£o qeu deseja mover: ");
 				numPeao = ler.nextInt();
 				System.out.println("1 -> Latitude + \t2 -> Latitude -");
 				System.out.println("3 -> Longitude + \\t4 -> Longitude -");
-				System.out.println("Em que direção qeu deseja mover: ");
+				System.out.println("Em que direÃ§Ã£o qeu deseja mover: ");
 				movimento = ler.nextInt();
 				if (i == 0)
 					tabuleiro.movimentaPeaoTabuleiro(jogadores[jogDaVez] ,numPeao, movimento, dado1 );
@@ -78,7 +78,18 @@ public class Padrao {
 	}
 	
 	private void fimDeJogoPadrao() {
+		int pontos, maior = 0;
+		Jogador vencedor = null;
 		System.out.println("Fim de Jogo! \\nContagem de pontos.."); 
-		
+		for (int i=0; i<jogadores.length; i++) {
+			jogadores[i].exibeJogador();
+			pontos = jogadores[i].qtdExploradoresJogador()+jogadores[i].qtdMetasJogador();
+			if (pontos>maior) {
+				maior = pontos;
+				vencedor = jogadores[i];
+			}
+		}
+		System.out.println("Vencedor: ");
+		vencedor.exibeJogador();
 	}
 }
