@@ -1,6 +1,9 @@
 
 public class Pecas {
 	
+	/* Classe representa uma casa no tabuleiro e guardas as pe√ßas que nela est√£o,
+	al√©m de sinalizar se a casa est√° aberta ou fechada*/
+	
 	private boolean coordAberta;
 	private Peao[] peao;
 	private Meta meta;
@@ -38,19 +41,19 @@ public class Pecas {
 		return peao;
 	}
 	
-	// Jogo Modo Padr„o ou Competitivo
+	// Jogo Modo Padr√£o ou Competitivo
 	public void adicionaPeaoNaCoord(Jogador jogador, int numPeao) {
 		Peao p = jogador.peaodoJogador(numPeao);
 		String cor = p.corDoPeoa();
 		int i, qtd = 0;
 		
-		// Verifica se a casa t· aberta
+		// Verifica se a casa t√° aberta
 		if (!this.coordenadaAberta()) {
 			System.out.println("Casa Fechada! Tente novamente.");
 			return;
 		}
 		
-		// Posiciona o pe„o na casa
+		// Posiciona o pe√£o na casa
 		for (i=0; i<peao.length; i++)
 			if (peao[i] == null) {
 				peao[i] = p;
@@ -90,13 +93,13 @@ public class Pecas {
 		String corAux;
 		int i, qtd = 0;
 			
-		// Verifica se a casa t· aberta
+		// Verifica se a casa t√° aberta
 		if (!this.coordenadaAberta()) {
 			System.out.println("Casa Fechada! Tente novamente.");
 			return;
 		}
 			
-		// Posiciona o pe„o na casa
+		// Posiciona o pe√£o na casa
 		for (i=0; i<peao.length; i++)
 			if (peao[i] == null) {
 				peao[i] = p;
